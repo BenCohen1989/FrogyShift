@@ -10,12 +10,20 @@ import { AuthInterceptor } from './services/auth-interceptor';
 
 // paaaaa
 import { NgbPaginationModule, NgbAlertModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { AllWeeksComponent } from './components/all-weeks/all-weeks.component';
 import { SidurListComponent } from './components/sidur-list/sidur-list.component';
 import { WeekCreateComponent } from './components/week-create/week-create.component';
+import { RequestResetPasswordComponent } from './components/request-reset-password/request-reset-password.component';
+import { ResponseResetPasswordComponent } from './components/response-reset-password/response-reset-password.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { EditSidurComponent } from './components/edit-sidur/edit-sidur.component';
+import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
 
 
 
