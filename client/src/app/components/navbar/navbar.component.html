@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark scrolling-navbar" *ngIf="userIsAuthenticated">
+  <a class=" navbar-brand" href="#">
+    <i>
+      <img src="../../../assets/frog (2).png">
+    </i>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
+    aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav  nav navbar-left ">
+      <li class="nav-item" *ngIf="userIsAuthenticated">
+        <a class="nav-link" routerLink="/sidur-list" routerLinkActive="active">
+          <i class="fas fa-calendar-alt"></i>
+          <span style="padding-left: 5px;">Shifts Organizer</span>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="userIsAuthenticated && ( myUserRule != 'super_admin' )">
+        <a class="nav-link" routerLink="/my-dashboard" routerLinkActive="active">
+          <i class="fas fa-calendar-alt"></i>
+          <span style="padding-left: 5px;"> my-dashboard </span>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="userIsAuthenticated && (myUserRule == 'admin' || myUserRule == 'super_admin' )">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">
+          <i class="fas fa-chart-line"></i> <span style="padding-left: 5px;">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="userIsAuthenticated && (myUserRule == 'admin' || myUserRule == 'super_admin' )">
+        <a class="nav-link" routerLink="/all-weeks" routerLinkActive="active">
+          <i class="fas fa-table"></i>
+          <span style="padding-left: 5px;">All Request </span>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="userIsAuthenticated ">
+        <a class="nav-link" routerLink="/week-create" routerLinkActive="active">
+          <i class="fas fa-frog"></i>
+          <span style="padding-left: 5px;">My Request</span>
+        </a>
+      </li>
+    </ul>
+
+
+    <ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item" *ngIf="userIsAuthenticated">
+        <a class="nav-link" routerLink="/my-profile" routerLinkActive="active">
+          <i class="fas fa-user"></i>
+          <span style="padding-left: 5px;">My Profile</span>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="userIsAuthenticated && myUserRule == 'admin'">
+        <a class="nav-link" routerLink="/users-list" routerLinkActive="active">
+          <i class="fas fa-users-cog"></i>
+          <span style="padding-left: 5px;">Users List</span>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="userIsAuthenticated">
+        <a class="nav-link" routerLink="/signin" routerLinkActive="active" (click)="onLogout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span style="padding-left: 5px;">Log out</span>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="!userIsAuthenticated">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+          <i class="fas fa-sign-in-alt"></i>
+          <span style="padding-left: 5px;">Sign-in</span>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="!userIsAuthenticated">
+        <a class="nav-link" routerLink="/signup" routerLinkActive="active">
+          <i class="fas fa-user-plus"></i>
+          <span style="padding-left: 5px;">Sign-up</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav aria-label="breadcrumb" *ngIf="userIsAuthenticated">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><strong style="padding-right: 2px;">Hello: {{userName}}
+        !</strong> <small> Last login: {{lastLogin |date:'short' }} </small> </li>
+  </ol>
+</nav>
