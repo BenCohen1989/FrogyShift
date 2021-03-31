@@ -1,0 +1,36 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead class="table-success">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"> Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">role</th>
+        <th scope="col">state</th>
+        <th scope="col">sms</th>
+        <th scope="col center">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of users; let i = index">
+        <td> {{i+1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.role}}</td>
+        <td *ngIf="item.isDisabeld" (click)="disabledUser(item)"> <i class="fas fa-user-slash"> </i></td>
+        <td *ngIf="!item.isDisabeld" (click)="disabledUser(item)"> <i class="fas fa-user"> </i></td>
+        <td (click)="sendSms(item)"><i class="far fa-comments"></i></td>
+        <td class="text-center edit-block">
+          <span class="edit" [routerLink]="['/users-edit/', item._id]">
+            <button type="button" class="btn btn-success btn-sm">Edit</button>
+          </span>
+          <span class="delete" (click)="removeUser(item)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
