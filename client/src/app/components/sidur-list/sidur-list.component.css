@@ -1,0 +1,39 @@
+.calender-days {
+  text-align: center;
+  width: 125px;
+  height: 125px;
+  /* background-color: #67676d ; */
+  border: 3px #adadcf;
+  color: aliceblue;
+}
+
+#calender {
+  /* width: 462px;; */
+}
+
+.main {
+  text-align: center;
+  display: inline-grid;
+  grid-template-columns: 125px 125px 125px 125px 125px 125px;
+  grid-gap: 1px;
+  grid-row-gap: 6px;
+}
+
+.squares {
+  border: 1px gray solid;
+  height: 120px;
+  width: 120px;
+}
+
+.btnPhone {
+  background-color: transparent;
+  border-top: 1px solid #ededed;
+  align-items: stretch;
+  display: grid;
+}
+
+
+.labelQube {
+  display: block;
+  margin-bottom: 0rem;
+}
