@@ -48,12 +48,12 @@
       </form>
     </div>
   </div>
-  <div class="card-footer btnPhone" *ngIf="!isUpdate">
+  <div class="card-footer btnPhone" *ngIf="!isUpdate && btn">
     <button type="button" type="submit" class="button is-primary" (click)="sendRequests()"
       style="    border-radius: 0;    ">send
       request</button>
   </div>
-  <div class="card-footer btnPhone" *ngIf="isUpdate">
+  <div class="card-footer btnPhone" *ngIf="isUpdate && btn">
     <button type="button" type="submit" class="button is-primary" (click)="updateReq()"
       style="    border-radius: 0;    ">update
       Request</button>

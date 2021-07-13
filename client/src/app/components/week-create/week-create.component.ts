@@ -23,7 +23,7 @@ import { WeekService } from 'src/app/services/week.service';
 export class WeekCreateComponent implements OnInit {
 
   remarksForm: FormGroup;
-
+  btn = true;
   week;
   shiftLast;
   changeShift: Shift[] = [];
@@ -113,11 +113,13 @@ export class WeekCreateComponent implements OnInit {
   }
 
   sendRequests() {
+    if(this.btn){
+      
     this.shiftService.addShift(this.shifts)
       .subscribe(res => {
         let shiftsIds = res;
         var remark = this.remarksForm.value;
-
+        this.btn = false;
         var days = this.getWeek(1);
         this.week = {
           start: new Date(days.sunday),
@@ -132,10 +134,12 @@ export class WeekCreateComponent implements OnInit {
           this.isUpdate = true;
           if (this.deleteState == false) {
             this.opensweetalert();
+            this.btn = true;
           }
         });
       });
   }
+}
 
 
   fillWeek(week) {
@@ -186,8 +190,12 @@ export class WeekCreateComponent implements OnInit {
   }
 
   updateReq() {
-    this.shifts = this.shiftLast;
-    this.opensweetalertcst();
+    if(this.btn){
+      this.btn = false;   
+      this.shifts = this.shiftLast;
+      this.opensweetalertcst();
+    }
+
   }
 
 
@@ -217,6 +225,7 @@ export class WeekCreateComponent implements OnInit {
           this.weekService.deleteWeek().subscribe(data => {
             this.sendRequests();
             this.deleteState = true;
+            this.btn = true;
           })
         });
       if (result.value) {
